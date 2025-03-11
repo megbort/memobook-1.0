@@ -1,18 +1,20 @@
 <template>
-  <div class="main-page-content">
+  <div class="dashboard">
     <MainBanner />
-    <main>
-      <p>Main contact information</p>
+    <main class="flex h-full">
+      <SidePanel />
+      <h2 class="p-8">Main contact information</h2>
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
 import MainBanner from '../components/MainBanner.vue'
+import SidePanel from '../components/SidePanel.vue'
 </script>
 
 <style scoped lang="scss">
-.main-page-content {
+.dashboard {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -22,11 +24,8 @@ import MainBanner from '../components/MainBanner.vue'
   box-sizing: border-box;
 }
 
-main {
-  flex: 1;
+.main-content {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
+  height: 100%;
 }
 </style>
