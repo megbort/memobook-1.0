@@ -8,7 +8,6 @@
 
 <style scoped>
 #app {
-  font-family: 'Arial', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;

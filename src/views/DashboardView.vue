@@ -1,17 +1,20 @@
+<script setup lang="ts">
+import MainBanner from '../components/MainBanner.vue'
+import SidePanel from '../components/SidePanel.vue'
+import ContactHeader from '../components/ContactHeader.vue'
+</script>
+
 <template>
   <div class="dashboard">
     <MainBanner />
     <main class="flex h-full">
       <SidePanel />
-      <h2 class="p-8">Main contact information</h2>
+      <div>
+        <ContactHeader />
+      </div>
     </main>
   </div>
 </template>
-
-<script setup lang="ts">
-import MainBanner from '../components/MainBanner.vue'
-import SidePanel from '../components/SidePanel.vue'
-</script>
 
 <style scoped lang="scss">
 .dashboard {
