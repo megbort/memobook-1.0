@@ -1,16 +1,49 @@
 <script setup lang="ts">
-import IconField from 'primevue/iconfield'
-import InputIcon from 'primevue/inputicon'
-import InputText from 'primevue/inputtext'
+import { ref, watch, defineEmits } from 'vue';
+import { Contacts } from '../mocks/contacts.ts';
+import { Contact } from '../models/contact.ts';
+
+import IconField from 'primevue/iconfield';
+import InputIcon from 'primevue/inputicon';
+import InputText from 'primevue/inputtext';
+import Listbox from 'primevue/listbox';
+import Button from 'primevue/button';
+
+const emit = defineEmits<{
+  'update:selectedContact': (contact: Contact) => void;
+}>();
+
+const searchValue = ref('');
+const contacts = ref<Contact[]>(Contacts);
+const selectedContact = ref<Contact>(contacts.value[0]);
+const filteredContacts = ref<Contact[]>(Contacts);
+
+watch(searchValue, (newValue) => {
+  filteredContacts.value = contacts.value.filter((contact) =>
+    contact.name.toLowerCase().includes(newValue.toLowerCase()),
+  );
+});
+
+watch(selectedContact, (newValue) => {
+  if (newValue) {
+    emit('update:selectedContact', newValue);
+  }
+});
 </script>
 
 <template>
   <div class="side-panel p-4 flex flex-col gap-2">
-    <h2>Contacts</h2>
+    <div class="flex justify-between">
+      <h2>Contacts</h2>
+      <Button icon="pi pi-plus" aria-label="Save" />
+    </div>
+
     <IconField>
       <InputIcon class="pi pi-search" />
-      <InputText v-model="value1" placeholder="Search" />
+      <InputText v-model="searchValue" placeholder="Search" />
     </IconField>
+
+    <Listbox v-model="selectedContact" :options="filteredContacts" optionLabel="name" />
   </div>
 </template>
 
