@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Contact } from '../models/contact';
+
 const props = defineProps<{
   contact: Contact;
 }>();

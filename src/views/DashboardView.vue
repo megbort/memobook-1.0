@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Contact } from '../models/contact.ts';
-import { Contacts } from '../mocks/contacts.ts';
+import { Contacts } from '../mocks/contacts';
+import type { Contact } from '../models/contact';
 
 import MainBanner from '../components/MainBanner.vue';
 import SidePanel from '../components/SidePanel.vue';

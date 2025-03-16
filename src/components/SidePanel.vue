@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, watch, defineEmits } from 'vue';
-import { Contacts } from '../mocks/contacts.ts';
-import { Contact } from '../models/contact.ts';
+import { ref, watch } from 'vue';
+import { Contacts } from '../mocks/contacts';
+import type { Contact } from '../models/contact';
 
 import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
@@ -10,7 +10,7 @@ import Listbox from 'primevue/listbox';
 import Button from 'primevue/button';
 
 const emit = defineEmits<{
-  'update:selectedContact': (contact: Contact) => void;
+  'update:selectedContact': [Contact];
 }>();
 
 const searchValue = ref('');
@@ -18,15 +18,15 @@ const contacts = ref<Contact[]>(Contacts);
 const selectedContact = ref<Contact>(contacts.value[0]);
 const filteredContacts = ref<Contact[]>(Contacts);
 
-watch(searchValue, (newValue) => {
+watch(searchValue, (newValue: string) => {
   filteredContacts.value = contacts.value.filter((contact) =>
     contact.name.toLowerCase().includes(newValue.toLowerCase()),
   );
 });
 
-watch(selectedContact, (newValue) => {
-  if (newValue) {
-    emit('update:selectedContact', newValue);
+watch(selectedContact, (newContact) => {
+  if (newContact) {
+    emit('update:selectedContact', newContact);
   }
 });
 </script>
@@ -42,7 +42,6 @@ watch(selectedContact, (newValue) => {
       <InputIcon class="pi pi-search" />
       <InputText v-model="searchValue" placeholder="Search" />
     </IconField>
-
     <Listbox v-model="selectedContact" :options="filteredContacts" optionLabel="name" />
   </div>
 </template>
