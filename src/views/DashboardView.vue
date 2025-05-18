@@ -5,7 +5,7 @@ import type { Contact } from '../models/contact';
 
 import MainBanner from '../components/MainBanner.vue';
 import SidePanel from '../components/SidePanel.vue';
-import ContactHeader from '../components/ContactHeader.vue';
+import ContactView from '../components/ContactView.vue';
 import ProgressSpinner from 'primevue/progressspinner';
 
 const selectedContact = ref<Contact>(Contacts[0]);
@@ -25,8 +25,8 @@ const updateSelectedContact = (contact: Contact) => {
     <MainBanner />
     <main class="flex h-full">
       <SidePanel @update:selectedContact="updateSelectedContact" />
-      <div v-if="selectedContact && !isLoading">
-        <ContactHeader :contact="selectedContact" />
+      <div v-if="selectedContact && !isLoading" class="flex-grow flex flex-col h-full">
+        <ContactView :contact="selectedContact" />
       </div>
       <div v-if="isLoading" class="flex items-center grow">
         <ProgressSpinner />

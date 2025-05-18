@@ -48,7 +48,7 @@ watch(selectedContact, (newContact) => {
 
 <style scoped lang="scss">
 .side-panel {
-  background-color: var(--color-primary);
-  color: var(--color-neutral-soft);
+  background-color: var(--primary);
+  color: var(--neutral-soft);
 }
 </style>

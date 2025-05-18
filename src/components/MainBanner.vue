@@ -6,7 +6,7 @@
 
 <style scoped lang="scss">
 .main-banner {
-  background-color: var(--color-primary-dark);
-  color: var(--color-neutral-soft);
+  background-color: var(--primary-dark);
+  color: var(--neutral-soft);
 }
 </style>
