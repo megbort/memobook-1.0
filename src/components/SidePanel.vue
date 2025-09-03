@@ -32,7 +32,7 @@ watch(selectedContact, (newContact) => {
 </script>
 
 <template>
-  <div class="side-panel p-4 flex flex-col gap-2">
+  <div class="bg-memobook-green text-memobook-white p-4 flex flex-col gap-2">
     <div class="flex justify-between">
       <h2>Contacts</h2>
       <Button icon="pi pi-plus" aria-label="Save" />
@@ -45,10 +45,3 @@ watch(selectedContact, (newContact) => {
     <Listbox v-model="selectedContact" :options="filteredContacts" optionLabel="name" />
   </div>
 </template>
-
-<style scoped lang="scss">
-.side-panel {
-  background-color: var(--primary);
-  color: var(--neutral-soft);
-}
-</style>

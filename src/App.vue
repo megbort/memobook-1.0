@@ -1,17 +1,7 @@
 <template>
-  <div id="dashboard">
+  <div id="dashboard" class="flex justify-center items-center h-screen">
     <router-view />
   </div>
 </template>
 
 <script setup lang="ts"></script>
-
-<style scoped>
-#dashboard {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: var(--color-neutral-soft);
-}
-</style>

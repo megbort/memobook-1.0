@@ -6,16 +6,16 @@
   color-scheme: light dark;
   --font-logo: 'Knewave', cursive;
   --font-body: 'Ubuntu', sans-serif;
-  ---primary-light: #ccff8c;
-  --primary: #81de76;
-  --primary-dark: #5b9a53;
-  --accent-dark: #3a55b4;
-  --accent-light: #6caddf;
-  --accent-soft: #8cd9ff;
-  --neutral-dark: #282828;
-  --neutral-muted: #9e9e9e;
-  --neutral-light: #f0f0f0;
-  --neutral-soft: #f9f9f9;
+  --memobook-light-green: #ccff8c;
+  --memobook-green: #81de76;
+  --memobook-dark-green: #5b9a53;
+  --memobook-light-blue: #8cd9ff;
+  --memobook-blue: #6caddf;
+  --memobook-dark-blue: #3a55b4;
+  --memobook-black: #282828;
+  --memobook-dark-grey: #9e9e9e;
+  --memobook-light-grey: #f0f0f0;
+  --memobook-white: #f9f9f9;
 }
 
 *,
@@ -37,16 +37,16 @@ h1.logo {
 h2,
 p {
   font-family: var(--font-body);
-  color: light-dark(var(--neutral-dark), var(--neutral-light));
+  color: light-dark(var(--memobook-black), var(--memobook-light-grey));
 }
 
 button.text-button {
   font-family: var(--font-body);
-  color: light-dark(var(--neutral-dark), var(--neutral-light));
+  color: light-dark(var(--memobook-black), var(--memobook-light-grey));
   display: inline-flex;
   text-decoration: underline;
   &:hover {
-    color: var(--primary-dark);
+    color: var(--memobook-dark-green);
     cursor: pointer;
   }
 }

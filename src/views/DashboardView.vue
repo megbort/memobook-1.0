@@ -3,7 +3,8 @@ import { ref } from 'vue';
 import { Contacts } from '../mocks/contacts';
 import type { Contact } from '../models/contact';
 
-import MainBanner from '../components/MainBanner.vue';
+import DemoBanner from '../components/DemoBanner.vue';
+import MainBanner from '../components/AppHeader.vue';
 import SidePanel from '../components/SidePanel.vue';
 import ContactView from '../components/ContactView.vue';
 import ProgressSpinner from 'primevue/progressspinner';
@@ -22,6 +23,7 @@ const updateSelectedContact = (contact: Contact) => {
 
 <template>
   <div class="dashboard">
+    <DemoBanner />
     <MainBanner />
     <main class="flex h-full">
       <SidePanel @update:selectedContact="updateSelectedContact" />

@@ -4,13 +4,15 @@ Welcome to MemoBook, a creative and intuitive address book application that tran
 
 This is the first version of the project, featuring a clean, modern interface powered by Vue and enhanced with PrimeVue components for a polished user experience.
 
-Enjoy exploring MemoBook!
+Visit the live site at [memobook.megankrenbrink.com]("https://memobook.megankrenbrink.com")
+
+Enjoy exploring!
 
 — Megan Krenbrink
 
 ## <br>
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -41,7 +43,7 @@ npm run preview
 
 Open [http://localhost:5173](http://localhost:5173) to view the app.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Vue** with **TypeScript**
 - **Vite** for fast development and building
@@ -75,6 +77,6 @@ src/
 └── ...                 # Other app logic
 ```
 
-## 🔗 Data Integration
+## Data Integration
 
 This application currently uses mock data for contact information, but is designed to be easily adapted for any backend API or database (this will soon be implemented by me!). The contact model provides a flexible foundation for expanding functionality.
