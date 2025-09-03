@@ -54,7 +54,7 @@ Open [http://localhost:5173](http://localhost:5173) to view the app.
 - **Vitest** for unit testing
 - **Cypress** for e2e testing
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
