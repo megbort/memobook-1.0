@@ -14,7 +14,9 @@ app.use(router)
 app.use(PrimeVue, {
   theme: {
     preset: Aura,
-    darkModeSelector: false,
+    options: {
+      darkModeSelector: '.dark',
+    },
     cssLayer: {
       name: 'primevue',
       order: 'base, primevue',

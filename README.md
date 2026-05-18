@@ -10,7 +10,9 @@ Enjoy exploring!
 
 — Megan Krenbrink
 
-## <br>
+<br>
+
+---
 
 ## Getting Started
 

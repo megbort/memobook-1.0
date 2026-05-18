@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import { Contacts } from '../mocks/contacts';
+import { ref, watch, computed } from 'vue';
 import type { Contact } from '../models/contact';
 
 import IconField from 'primevue/iconfield';
@@ -9,18 +8,23 @@ import InputText from 'primevue/inputtext';
 import Listbox from 'primevue/listbox';
 import Button from 'primevue/button';
 
+const props = defineProps<{
+  contacts: Contact[];
+}>();
+
 const emit = defineEmits<{
   'update:selectedContact': [Contact];
 }>();
 
 const searchValue = ref('');
-const contacts = ref<Contact[]>(Contacts);
-const selectedContact = ref<Contact>(contacts.value[0]);
-const filteredContacts = ref<Contact[]>(Contacts);
+const selectedContact = ref<Contact | null>(props.contacts[0] ?? null);
 
-watch(searchValue, (newValue: string) => {
-  filteredContacts.value = contacts.value.filter((contact) =>
-    contact.name.toLowerCase().includes(newValue.toLowerCase()),
+const filteredContacts = computed(() => {
+  if (!searchValue.value) {
+    return props.contacts;
+  }
+  return props.contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(searchValue.value.toLowerCase()),
   );
 });
 
@@ -29,6 +33,15 @@ watch(selectedContact, (newContact) => {
     emit('update:selectedContact', newContact);
   }
 });
+
+watch(
+  () => props.contacts,
+  (newContacts) => {
+    if (newContacts.length > 0 && !selectedContact.value) {
+      selectedContact.value = newContacts[0];
+    }
+  },
+);
 </script>
 
 <template>
