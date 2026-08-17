@@ -19,6 +19,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Set app version
+        run: |
+          SHORT_SHA="${GITHUB_SHA::7}"
+          BUILD_DATE="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          cat <<EOF > src/version.ts
+          export const appVersion = { build: '${{ github.run_number }}', sha: '$SHORT_SHA', date: '$BUILD_DATE' };
+          EOF
+
       - name: Build
         run: npm run build
 

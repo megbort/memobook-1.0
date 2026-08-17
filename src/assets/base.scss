@@ -31,9 +31,9 @@
 }
 
 body {
-  @include typography-styles();
   background-color: light-dark(var(--memobook-white), var(--memobook-black));
   color: light-dark(var(--memobook-black), var(--memobook-light-grey));
+  @include typography-styles();
 }
 
 h1.logo {
