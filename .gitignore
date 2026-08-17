@@ -29,7 +29,6 @@ coverage
 
 *.tsbuildinfo
 
-.github/
 .claude
 claude.md
 
